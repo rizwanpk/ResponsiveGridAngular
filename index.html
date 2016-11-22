@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gamesGrid">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rizwan Yousaf | Full-Stack Developer</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body id="top">
+
+<section id="rig" ng-controller="listCtrl as list">
+    <form class="search-field">
+        <input type="text" placeholder="Search..." class="form-control" ng-model="list.search">
+    </form>
+    <div class="grid-gallery" ng-repeat="game in list.data | filter:list.search">
+        <a class="rig-cell">
+            <img class="rig-img" ng-src="{{game.image_url}}">
+            <span class="rig-overlay"></span>
+            <span class="rig-text">{{game.title}}</span>
+        </a>
+    </div>
+</section>
+
+<!-- third party js -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<!-- Our application scripts -->
+<script src="js/app.js"></script>
+<script src="js/controllers/list.js"></script>
+
+</body>
+</html>
